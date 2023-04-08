@@ -528,3 +528,47 @@ textarea.form-input {
     margin: auto;
   }
 }
+
+.form-login {
+  width: 400px;
+  background-color: #ffffff;
+  padding: 30px;
+  margin: auto;
+  margin-top: 50px;
+  font-family: "calibri";
+  color: #24222d;
+}
+
+.form-login h4 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.casilla-login {
+  width: 100%;
+  background-color: #24222d;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border: 1px solid #004896;
+  color: white;
+  font-size: "calibri";
+  font-size: 18px;
+  
+}
+
+.form-login .botons {
+  width: 100%;
+  padding: 12px;
+  color: black;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+
+}
+
+.check-log {
+  font-size: 16px;
+  font-family: "calibri";
+  margin-bottom: 20px;
+}
