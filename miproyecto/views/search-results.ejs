@@ -20,27 +20,9 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for (let index = 0; index < lsProd.length; index++) {%>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/products/product">
-							<figure class="product-box_image">
-								<img src='<%=lsProd[index].foto%>' alt='' height="250px" width="330px">
-							</figure>
-							<article class="product-box_data">
-								<h2><%- lsProd[index].nombre %></h2>
-								<p><%- lsProd[index].descripcion%></p>
-								<p>Comentarios: 12</p>
-							</article>
-						</a>
-					</section>
-				</div>
-				<% if(index==3){%>
-					<% break%>
-				<%}%>
-			<% }%>
-		</div>
+			
 
+			
 
 	<!-- footer -->
 	<footer class="main-footer">
