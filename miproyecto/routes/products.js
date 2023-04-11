@@ -7,7 +7,7 @@ const controller = require('../controllers/pControler')
 
 router.get('/search-results', controller.searchResults);
 router.get('/product-add', controller.productAdd);
-router.get('/', controller.product);
+router.get('/product', controller.product);
 
 
 

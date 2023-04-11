@@ -8,7 +8,7 @@ const controller = {
         return res.render('search-results', {lsProd: data.productos})
     },
     productAdd: function (req, res) {
-        return res.render('product-add', {usuario: data.usuario.usuario})
+        return res.render('product-add', {usuario: data.usuarios.usuario})
     },
 }
 
