@@ -17,7 +17,13 @@
 <body>
 	<!-- Header -->
 	<header class="main-header">
-		<%- include('./partials/header.ejs') %>
+		<% if (logueado == "si") {%>
+			<%- include('./partials/header-logueado.ejs') %>
+		<%} 
+		else{%>
+			<%- include('./partials/header.ejs')%>
+		<%}%> 
+
 	</header>
 	<!-- /Header -->
 	
