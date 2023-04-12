@@ -8,7 +8,7 @@
 	<!-- Header -->
 	<header class="main-header">
 		<% if (logueado == "si") {%>
-			<%- include('./partials/header-logueado.ejs', {user: usuarios})%>
+			<%- include('./partials/header-logueado.ejs', {user: usuario})%>
 		<%} 
 		else{%>
 			<%- include('./partials/header.ejs')%>
