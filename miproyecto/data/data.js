@@ -78,26 +78,20 @@ const data = {
             imagen: '/images/users/buli.jpg'
         },
         {
-            nombre_de_usuario: 'BuliGig',
-            comentario: '1 Pedazo de mate, muy recomendado!',
-            imagen: '/images/users/buli.jpg'
+            nombre_de_usuario: 'Marad10s',
+            comentario: 'Al Diego le gusta esto',
+            imagen: '/images/users/marado'
         },
         {
-            nombre_de_usuario: 'BuliGig',
-            comentario: '2 Pedazo de mate, muy recomendado!',
-            imagen: '/images/users/buli.jpg'
+            nombre_de_usuario: 'Messias10',
+            comentario: 'despues de la del mundo, esto fue lo mejor que me paso',
+            imagen: '/images/users/messi.jpg'
         },
         {
-            nombre_de_usuario: 'BuliGig',
-            comentario: '3 Pedazo de mate, muy recomendado!',
-            imagen: '/images/users/buli.jpg'
+            nombre_de_usuario: 'Wanchupikemero',
+            comentario: 'Tirate un canje lauchin',
+            imagen: '/images/users/wanchope'
         },
-        {
-            nombre_de_usuario: 'BuliGig',
-            comentario: '4 Pedazo de mate, muy recomendado!',
-            imagen: '/images/users/buli.jpg'
-        },
-    
     ]
 
 }
