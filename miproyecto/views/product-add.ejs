@@ -20,12 +20,16 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar prodcutos al catálogo. <br>
-			Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-			Eliminen estás líneas y coloquen el formulario. <br>
-			Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar correctamtente</i> <br>
-			////////////////
-			</h2>
+			<section class="form-login">
+				<form action="/logueado" method="get">
+				<h4>Agregar producto</h4>
+				<input class="casilla-login" type="file" name="imagen" id="imagen" placeholder="Imagen">
+				<input class="casilla-login" type="text" name="nombre-del-producto" id="nombre-del-producto" placeholder="Nombre del producto">
+				<input class="casilla-login" type="text" name="descripcion" id="descripcion" placeholder="Descripción">
+				<input class="casilla-login" type="date" name="fecha-de-carga" id="fecha-de-carga" placeholder="Fecha de carga">
+				<input class="botons" type="submit" name="submit" id="login" placeholder="login">
+				</form>
+			</section>
 	<!-- /Novedades -->
 
 
