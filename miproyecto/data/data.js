@@ -77,7 +77,26 @@ const data = {
             comentario: 'Pedazo de mate, muy recomendado!',
             imagen: '/images/users/buli.jpg'
         },
-
+        {
+            nombre_de_usuario: 'BuliGig',
+            comentario: '1 Pedazo de mate, muy recomendado!',
+            imagen: '/images/users/buli.jpg'
+        },
+        {
+            nombre_de_usuario: 'BuliGig',
+            comentario: '2 Pedazo de mate, muy recomendado!',
+            imagen: '/images/users/buli.jpg'
+        },
+        {
+            nombre_de_usuario: 'BuliGig',
+            comentario: '3 Pedazo de mate, muy recomendado!',
+            imagen: '/images/users/buli.jpg'
+        },
+        {
+            nombre_de_usuario: 'BuliGig',
+            comentario: '4 Pedazo de mate, muy recomendado!',
+            imagen: '/images/users/buli.jpg'
+        },
     
     ]
 
