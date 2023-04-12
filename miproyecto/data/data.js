@@ -5,7 +5,7 @@ const data = {
         contrasena: 'quelindoprogramar',
         fecha_de_nacimiento: '02/09/1988',
         doc: '30842994',
-        fto: '/images/users/Logo_Recado_circular.png'
+        fto: '/images/users/fotoperfil.png'
     
     },
     productos: [
@@ -26,6 +26,18 @@ const data = {
             foto: '/images/products/torpedo4.png',
             descripcion: 'Torpedo de cuero y virola croco, costura uruguaya.',
             fecha_de_carga: '04/12/2018'
+        },
+        {
+            nombre: 'Termo media manija',
+            foto: '/images/products/termo-media-manija.png',
+            descripcion: 'Termo media manija de 1 Litro.',
+            fecha_de_carga: '03/11/2018'
+        },
+        {
+            nombre: 'Termo bala',
+            foto: '/images/products/termo-bala.png',
+            descripcion: 'Termo bala de 1 Litro.',
+            fecha_de_carga: '04/10/2018'
         },
         {
             nombre: 'Mate Imperial',
