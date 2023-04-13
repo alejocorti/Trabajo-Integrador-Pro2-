@@ -40,7 +40,7 @@ const data = {
             fecha_de_carga: '09/10/2018'
         },
         {
-            nombre: 'Termo bala',
+            nombre: 'Termo Bala',
             foto: '/images/products/termo-bala.png',
             descripcion: 'Termo bala de 1 litro.',
             fecha_de_carga: '04/10/2018'
