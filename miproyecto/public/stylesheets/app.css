@@ -68,6 +68,9 @@ hr {
 
 /*====== Main Header ======*/
 
+.matecito {
+  width: 30px;
+}
 
 .main-header {
   padding: 5px 0;
@@ -541,8 +544,6 @@ textarea.form-input {
   font-family: "calibri";
   margin-bottom: 20px;
 }
-
-
 
 
 /*====== Media-Queries ======*/
