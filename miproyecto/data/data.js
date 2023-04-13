@@ -12,19 +12,19 @@ const data = {
         {
             nombre: 'Mate Torpedo Alpaca',
             foto: '/images/products/torpedo_alpaca_2.png',
-            descripcion: 'Torpedo de cuero y virola de alpaca, costura uruguaya.',
+            descripcion: 'Torpedo de cuero y virola de Alpaca, costura uruguaya.',
             fecha_de_carga: '09/12/2018'
         },
         {
-            nombre: 'Bombillon',
+            nombre: 'Bombillón',
             foto: '/images/products/bombilla2.png',
-            descripcion: 'Bombillon Pico de loro de alpaca.',
+            descripcion: 'Bombillón pico de loro de Alpaca.',
             fecha_de_carga: '09/11/2018'
         },
         {
-            nombre: 'Termo media manija',
+            nombre: 'Termo Media Manija',
             foto: '/images/products/termo-media-manija.png',
-            descripcion: 'Termo media manija de 1 Litro.',
+            descripcion: 'Termo media manija de 1 litro.',
             fecha_de_carga: '03/11/2018'
         },
         {
@@ -36,25 +36,25 @@ const data = {
         {
             nombre: 'Bombilla Loro',
             foto: '/images/products/bombilla1.png',
-            descripcion: 'Bombilla Pico de loro de alpaca.',
+            descripcion: 'Bombilla pico de loro de Alpaca.',
             fecha_de_carga: '09/10/2018'
         },
         {
             nombre: 'Termo bala',
             foto: '/images/products/termo-bala.png',
-            descripcion: 'Termo bala de 1 Litro.',
+            descripcion: 'Termo bala de 1 litro.',
             fecha_de_carga: '04/10/2018'
         },
         {
             nombre: 'Mate Imperial',
             foto: '/images/products/imperial.png',
-            descripcion: 'Mate imperial de alpaca, costura uruguaya.',
+            descripcion: 'Mate imperial de Alpaca, costura uruguaya.',
             fecha_de_carga: '23/12/2018'
         },
         {
             nombre: 'Bombilla Acero',
             foto: '/images/products/bombilla3.png',
-            descripcion: 'Bombilla Pico de loro de acero.',
+            descripcion: 'Bombilla pico de loro de acero.',
             fecha_de_carga: '08/10/2018'
         },
         {
@@ -66,19 +66,19 @@ const data = {
         {
             nombre: 'Bombilla Alpaca',
             foto: '/images/products/bombilla4.png',
-            descripcion: 'Bombilla Pico ancho de alpaca.',
+            descripcion: 'Bombilla pico ancho de alpaca.',
             fecha_de_carga: '19/11/2018'
         },
         {
             nombre: 'Bombilla Rey',
             foto: '/images/products/bombilla5.png',
-            descripcion: 'Bombilla Pico de rey de alpaca.',
+            descripcion: 'Bombilla pico de rey de alpaca.',
             fecha_de_carga: '12/12/2018'
         },
         {
             nombre: 'Bombilla Bor',
             foto: '/images/products/bombilla6.png',
-            descripcion: 'Bombilla Pico Bor de alpaca.',
+            descripcion: 'Bombilla pico bor de alpaca.',
             fecha_de_carga: '14/12/2018'
         },
         
