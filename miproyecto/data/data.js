@@ -16,22 +16,28 @@ const data = {
             fecha_de_carga: '09/12/2018'
         },
         {
-            nombre: 'Mate Torpedo Acero',
-            foto: '/images/products/torpedo3.png',
-            descripcion: 'Torpedo de cuero y virola de acero, costura uruguaya.',
-            fecha_de_carga: '02/12/2018'
-        },
-        {
-            nombre: 'Mate Torpedo Croco',
-            foto: '/images/products/torpedo4.png',
-            descripcion: 'Torpedo de cuero y virola croco, costura uruguaya.',
-            fecha_de_carga: '04/12/2018'
+            nombre: 'Bombillon',
+            foto: '/images/products/bombilla2.png',
+            descripcion: 'Bombillon Pico de loro de alpaca.',
+            fecha_de_carga: '09/11/2018'
         },
         {
             nombre: 'Termo media manija',
             foto: '/images/products/termo-media-manija.png',
             descripcion: 'Termo media manija de 1 Litro.',
             fecha_de_carga: '03/11/2018'
+        },
+        {
+            nombre: 'Mate Torpedo Acero',
+            foto: '/images/products/torpedo3.png',
+            descripcion: 'Torpedo de cuero y virola de acero, costura uruguaya.',
+            fecha_de_carga: '02/12/2018'
+        },
+        {
+            nombre: 'Bombilla Loro',
+            foto: '/images/products/bombilla1.png',
+            descripcion: 'Bombilla Pico de loro de alpaca.',
+            fecha_de_carga: '09/10/2018'
         },
         {
             nombre: 'Termo bala',
@@ -46,22 +52,16 @@ const data = {
             fecha_de_carga: '23/12/2018'
         },
         {
-            nombre: 'Bombilla Loro',
-            foto: '/images/products/bombilla1.png',
-            descripcion: 'Bombilla Pico de loro de alpaca.',
-            fecha_de_carga: '09/10/2018'
-        },
-        {
-            nombre: 'Bombillon',
-            foto: '/images/products/bombilla2.png',
-            descripcion: 'Bombillon Pico de loro de alpaca.',
-            fecha_de_carga: '09/11/2018'
-        },
-        {
             nombre: 'Bombilla Acero',
             foto: '/images/products/bombilla3.png',
             descripcion: 'Bombilla Pico de loro de acero.',
             fecha_de_carga: '08/10/2018'
+        },
+        {
+            nombre: 'Mate Torpedo Croco',
+            foto: '/images/products/torpedo4.png',
+            descripcion: 'Torpedo de cuero y virola croco, costura uruguaya.',
+            fecha_de_carga: '04/12/2018'
         },
         {
             nombre: 'Bombilla Alpaca',
