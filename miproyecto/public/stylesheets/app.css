@@ -10,7 +10,8 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'calibri', sans-serif
+  --tipografia1: 'fantasy';
+  --tipografia2: "papyrus";
 }
 
 
@@ -27,7 +28,7 @@ body {
 }
 
 body {
-  font-family: var(--base-font-family);
+  font-family: var(--tipografia1);
   font-weight: 300;
   background-color: var(--light-gray);
 }
@@ -56,7 +57,7 @@ img {
 
 input,
 textarea {
-  font-family: inherit;
+  font-family: var(--tipografia2);
 }
 
 hr {
@@ -66,14 +67,18 @@ hr {
 
 
 /*====== Main Header ======*/
+
+
 .main-header {
   padding: 5px 0;
   background-color: var(--colorrecado);
   color: white;
+  font-family: var(--tipografia1);
 }
 
 .main-header_home-link {
   width: 120px;
+ 
 }
 
 .main-header_credit-link {
@@ -187,6 +192,7 @@ hr {
   overflow: hidden;
   transition: 300ms;
   margin: 20px 0;
+  font-family: var(--tipografia2);
 }
 
 .product-box a {
@@ -484,6 +490,53 @@ textarea.form-input {
 }
 
 
+.form-login {
+  width: 400px;
+  background-color: #ffffff;
+  padding: 30px;
+  margin: auto;
+  margin-top: 50px;
+  font-family: "calibri";
+  color: #24222d;
+}
+
+.form-login h4 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.casilla-login {
+  width: 100%;
+  background-color: #24222d;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border: 1px solid #004896;
+  color: white;
+  font-size: "calibri";
+  font-size: 18px;
+  
+}
+
+.form-login .botons {
+  width: 100%;
+  padding: 12px;
+  color: black;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+
+}
+
+.check-log {
+  font-size: 16px;
+  font-family: "calibri";
+  margin-bottom: 20px;
+}
+
+
+
+
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
   .main-header_credit-link {
@@ -534,49 +587,5 @@ textarea.form-input {
     width: 95%;
     margin: auto;
   }
-}
-
-.form-login {
-  width: 400px;
-  background-color: #ffffff;
-  padding: 30px;
-  margin: auto;
-  margin-top: 50px;
-  font-family: "calibri";
-  color: #24222d;
-}
-
-.form-login h4 {
-  font-size: 22px;
-  margin-bottom: 20px;
-}
-
-.casilla-login {
-  width: 100%;
-  background-color: #24222d;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  border: 1px solid #004896;
-  color: white;
-  font-size: "calibri";
-  font-size: 18px;
-  
-}
-
-.form-login .botons {
-  width: 100%;
-  padding: 12px;
-  color: black;
-  font-size: 16px;
-  border-radius: 4px;
-  margin-bottom: 20px;
-
-}
-
-.check-log {
-  font-size: 16px;
-  font-family: "calibri";
-  margin-bottom: 20px;
 }
 
