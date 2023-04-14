@@ -26,20 +26,17 @@ descripcionProd varchar(255) not null,
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 deletedAt timestamp null,
-FOREIGN KEY(usuario_id) references usuarios(id),
-);
-insert into productos (usuario_id,producto,descripcionProd) 
-values
-(1,"Mate camionero acero","Mate camionero acero");
-(2,"Mate imperial liso","Mate imperial liso");
-(5,"Mate torpedo cincelado","Mate torpedo cincelado");
-(3,"Mate calabaza cruda","Mate calabaza cruda");
-(5,"Bombilla de oro","Bombilla de oro");
-(2,"Bombillon premium","Bombillon premium");
-(5,"Mate vaqueta","Mate vaqueta");
-(4,"Stickers","Stickers");
-(1,"Termo stanley","Termo stanley 1l");
-(2,"Termo termolar","Termo termolar 1l");
+FOREIGN KEY(usuario_id) references usuarios(id));
+insert into productos (usuario_id,producto,descripcionProd)values(1,"Mate camionero acero","Mate camionero acero");
+insert into productos (usuario_id,producto,descripcionProd)values(2,"Mate imperial liso","Mate imperial liso");
+insert into productos (usuario_id,producto,descripcionProd)values(5,"Mate torpedo cincelado","Mate torpedo cincelado");
+insert into productos (usuario_id,producto,descripcionProd)values(3,"Mate calabaza cruda","Mate calabaza cruda");
+insert into productos (usuario_id,producto,descripcionProd)values(5,"Bombilla de oro","Bombilla de oro");
+insert into productos (usuario_id,producto,descripcionProd)values(2,"Bombillon premium","Bombillon premium");
+insert into productos (usuario_id,producto,descripcionProd)values(5,"Mate vaqueta","Mate vaqueta");
+insert into productos (usuario_id,producto,descripcionProd)values(4,"Stickers","Stickers");
+insert into productos (usuario_id,producto,descripcionProd)values(1,"Termo stanley","Termo stanley 1l");
+insert into productos (usuario_id,producto,descripcionProd)values(2,"Termo termolar","Termo termolar 1l");
 
 create table comentarios(
 id int unsigned primary key auto_increment,
