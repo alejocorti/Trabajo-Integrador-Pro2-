@@ -45,7 +45,7 @@ usuario_id INT UNSIGNED NOT NULL,
 comentario varchar(255) not null,
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-deletedAt timestamp ON UPDATE CURRENT_TIMESTAMP,
+deletedAt timestamp null,
 FOREIGN KEY(post_id) references productos(id),
 FOREIGN KEY(usuario_id) references usuarios(id)
 );
