@@ -14,18 +14,42 @@ const controller = {
             include:[{association: 'owner'}, {association: 'comentarios'}],
             order : [['createdAt', 'DESC']],
             limit: 5
-        }) //corresponde a la variable que tiene adentro el modelo que obtuvimos de la constante db, si tnego adentro el modelo podemos usar el metodo de sequelize que son promesas
-            .then(function( ){ 
-
+        }) 
+            .then(function(productoos){ 
+                for(let i = 0; i < productoos.length; i++){
+                    productoos.push(productoos[i])
+                }
              //console.log('RESULTADOS DEL FINDALL: ' + );
                     //return res.send (productos)
-                    return res.render('index', {info: acavasobreproductos });
+                    return res.render('index', {info: productoos});
             
             })
     },
     search: function (req,res){
-    }
-    }
+        //var usuarios = [];
+        products.findAll ({
+            include:[{association: 'owner'}, {association: 'comentarios'}],
+            where: [{model: {[op.like]: '%' + req.query.search + '%'}}] //  asi deberia funcionar 
+        })
+            .then(function (productoos){
+                //return res.send(productoos);
+                console.log('el primer findAll nos trae: ' + productoos)
+                products.findAll ({
+                    include:[{association: 'owner'}, {association: 'comentarios'}],
+                    where: [{brand: {[op.like]: '%' + req.query.search + '%'}}] //  asi deberia funcionar 
+                })
+                .then(function(celulares2){
+                    
+                    for(let i = 0; i < productoos.length; i++){
+                        productoos.push(productoos[i])
+                    }
+                    
+                    return res.render('search-results', {info: productoos, query: req.query.search});
+                })
+            })
+            .catch(error => console.log("EL ERROR ES: " + error))
+        }
+}
 //if(req.params.si){
 //    return res.render('index', {lsProd: data.productos, logueado: 'si', usuario: data.usuarios.usuario})
 //}
