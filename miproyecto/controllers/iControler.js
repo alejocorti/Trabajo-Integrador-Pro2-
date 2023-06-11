@@ -1,8 +1,8 @@
 //requires necesarios
 //const { Association } = require('sequelize/types');
 const db = require('../database/models'); //trae los modelos
-const products = db.Producto //de todos los modelos pide Phone(el alias)
-const users = db.Usuario // de todos los modelos pide User(el alias)
+const products = db.Producto //de todos los modelos pide Producto(el alias)
+const users = db.Usuario // de todos los modelos pide Usuario(el alias)
 const comments = db.Comentario
 const op = db.Sequelize.Op;//contiene los operadores para usar en metodos de sequelize
 
