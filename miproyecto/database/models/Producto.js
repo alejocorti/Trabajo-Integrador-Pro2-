@@ -10,7 +10,7 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
             notNull: true,
             type: DataTypes.INTEGER(10).UNSIGNED,
         },
-        usuario_id:{
+        usuarioId:{
             notNull:true,
             type: DataTypes.INTEGER(10).UNSIGNED,
         },
@@ -36,7 +36,7 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
     let config = { //puede no estar, cuando el nombre de la tabla es el nombre del modelo en plural
         tableName: 'productos',
         timestamps: true, //le dice al modelo si la tabla estan las columnas updatedAt y createdAt
-        underscored: true, //si la tabla tiene columnas con nombres usando _.
+        underscored: false, //si la tabla tiene columnas con nombres usando _.
     }
     const Producto = Sequelize.define(alias, cols, config);
 
@@ -46,12 +46,12 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
         Producto.belongsTo(models.Usuario,
             {
                 as: 'owner',
-                foreignKey: 'usuario_id'
+                foreignKey: 'usuarioId'
             });
         Producto.hasMany(models.Comentario,
             {
                 as: 'comentarios',
-                foreignKey: 'post_id'
+                foreignKey: 'postId'
             });
     }
 

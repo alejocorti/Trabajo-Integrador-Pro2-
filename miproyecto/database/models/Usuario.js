@@ -1,4 +1,5 @@
 module.exports = function (Sequelize,DataTypes){
+
     let alias="Usuario"
     let cols={
         id:{
@@ -16,7 +17,7 @@ module.exports = function (Sequelize,DataTypes){
             notNull: true,
             type: DataTypes.STRING,
         },
-        fecha_de_nacimiento:{
+        fechaDeNacimiento:{
             notNull: true,
             type: DataTypes.DATEONLY,
         },
@@ -24,7 +25,7 @@ module.exports = function (Sequelize,DataTypes){
             notNull: true,
             type: DataTypes.INTEGER(10).UNSIGNED,
         },
-        foto_de_perfil:{
+        fotoDePerfil:{
             notNull: true,
             type: DataTypes.STRING,
         },
@@ -44,7 +45,7 @@ module.exports = function (Sequelize,DataTypes){
     let config={
         tableName: 'usuarios',
         timestamps: true, //le dice al modelo si la tabla estan las columnas updatedAt y createdAt
-        underscored: true,
+        underscored: false,
 
     }
     const Usuario = Sequelize.define(alias, cols, config);

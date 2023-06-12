@@ -11,11 +11,11 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
             autoIncrement: true,
             type: DataTypes.INTEGER(10).UNSIGNED,
         },
-        post_id:{
+        postId:{
             notNull: true,
             type: DataTypes.INTEGER(10).UNSIGNED,
         },
-        usuario_id: {
+        usuarioId: {
             notNull: true,
             type: DataTypes.INTEGER(10).UNSIGNED,
         },
@@ -37,7 +37,7 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
     let config = { 
         tableName: 'comentario',//puede no estar, cuando el nombre de la tabla es el nombre del modelo en plural
         timestamps: true, //le dice al modelo si la tabla estan las columnas updatedAt y createdAt
-        underscored: true, //si la tabla tiene columnas con nombres usando _.
+        underscored: false, //si la tabla tiene columnas con nombres usando _.
     }
     const Comentario = Sequelize.define(alias, cols, config);
 
@@ -47,13 +47,13 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
         Comentario.belongsTo(models.Producto,
             {
                 as: 'productoComentado',
-                foreignKey: 'post_id'
+                foreignKey: 'postId'
             });
 
         Comentario.belongsTo(models.Usuario,
             {
                 as: 'comentador',
-                foreignKey: 'usuario_id'
+                foreignKey: 'usuarioId'
             });
 
     }

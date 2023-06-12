@@ -14,47 +14,35 @@ const controller = {
             include:[{association: 'owner'}, {association: 'comentarios'}],
             order : [['createdAt', 'DESC']],
             limit: 5
-        }) 
-            .then(function(productoos){ 
-                for(let i = 0; i < productoos.length; i++){
-                    productoos.push(productoos[i])
-                }
+        })
              //console.log('RESULTADOS DEL FINDALL: ' + );
                     //return res.send (productos)
-                    return res.render('index', {info: productoos});
-            
-            })
+            return res.render('index', {info: productoos});      
     },
     search: function (req,res){
         //var usuarios = [];
         products.findAll ({
             include:[{association: 'owner'}, {association: 'comentarios'}],
-            where: [{model: {[op.like]: '%' + req.query.search + '%'}}] //  asi deberia funcionar 
+            where: [{producto: {[op.like]: '%' + req.query.search + '%'}}] //  asi deberia funcionar 
         })
             .then(function (productoos){
                 //return res.send(productoos);
                 console.log('el primer findAll nos trae: ' + productoos)
                 products.findAll ({
                     include:[{association: 'owner'}, {association: 'comentarios'}],
-                    where: [{brand: {[op.like]: '%' + req.query.search + '%'}}] //  asi deberia funcionar 
+                    where: [{descripcionProd: {[op.like]: '%' + req.query.search + '%'}}] //  asi deberia funcionar 
                 })
-                .then(function(celulares2){
+                .then(function(productoos2){
                     
                     for(let i = 0; i < productoos.length; i++){
-                        productoos.push(productoos[i])
+                        productoos.push(productoos2[i])
                     }
                     
                     return res.render('search-results', {info: productoos, query: req.query.search});
                 })
             })
             .catch(error => console.log("EL ERROR ES: " + error))
-        }
+    }
 }
-//if(req.params.si){
-//    return res.render('index', {lsProd: data.productos, logueado: 'si', usuario: data.usuarios.usuario})
-//}
-//else{
-//   return res.render('index', {lsProd: data.productos, logueado: 'no'})
-//}
-
+//exportamos
 module.exports = controller;
