@@ -1,6 +1,6 @@
 const data = {
     usuarios:{
-        mail: 'luisnavas@gmail.com',
+        mail: 'luisnavas@gmail.co',
         usuario: 'Luis_navas10',
         contrasena: 'quelindoprogramar',
         fecha_de_nacimiento: '02/09/1988',
