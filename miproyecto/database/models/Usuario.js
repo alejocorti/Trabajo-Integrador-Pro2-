@@ -13,6 +13,10 @@ module.exports = function (Sequelize,DataTypes){
             type: DataTypes.STRING,
             
         },
+        usuario:{
+            notNull: true,
+            type: DataTypes.STRING,
+        },
         contrasenia:{
             notNull: true,
             type: DataTypes.STRING,

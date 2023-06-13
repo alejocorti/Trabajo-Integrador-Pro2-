@@ -16,7 +16,6 @@ const controller = {
             include: [{association: 'owner'}, {association: 'comentarios'}],
         })
         .then(function (data) {
-            console.log(data);
             return res.render('index', {productos: data});
         })
         .catch(function(err){console.log(err);})

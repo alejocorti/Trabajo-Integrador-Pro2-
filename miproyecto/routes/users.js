@@ -7,6 +7,7 @@ const controller = require('../controllers/uControler')
 
 router.get('/login', controller.login);
 router.get('/register', controller.register);
+router.post('/register', controller.usuarioAdd);
 router.get('/profile', controller.perfil);
 router.get('/profile-edit', controller.editar_perfil);
 

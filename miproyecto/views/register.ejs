@@ -16,19 +16,20 @@
 	<!-- Novedades -->
 	
 	<section class="form-login">
-		<form action="/logueado" method="get">
+		<form action="/users/register" method="post">
 		<h4>Registrate <i class="fa-solid fa-address-card"></i></h4>
-		<input class="casilla-login" type="email" name="email" id="email" placeholder="Email">
-		<input class="casilla-login" type="text" name="usuario" id="usuario" placeholder="Usuario">
-		<input class="casilla-login" type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
-		<input class="casilla-login" type="date" name="nacimiento" id="nacimiento" placeholder="Fecha de Nacimiento">
-		<input class="casilla-login" type="number" name="documento" id="documento" placeholder="Documento">
-		<input class="casilla-login" type="text" name="foto-perfil" id="foto-perfil" placeholder="Foto de Perfil">
+		<input class="casilla-login" type="email" name="email" id="email" placeholder="Email" required>
+		<input class="casilla-login" type="text" name="usuario" id="usuario" placeholder="Usuario" required>
+		<input class="casilla-login" type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
+		<input class="casilla-login" type="date" name="nacimiento" id="nacimiento" placeholder="Fecha de Nacimiento" required>
+		<input class="casilla-login" type="number" name="documento" id="documento" placeholder="Documento" required>
+		<input class="casilla-login" type="text" name="fotoPerfil" id="fotoPerfil" placeholder="Foto de Perfil" required>
 		<input class="botons" type="submit" name="submit" id="login" placeholder="login">
 		</form>
 	</section>
-
-
+	<% if (locals.errors) { %>
+		<p><%= errors.message %></p>
+	<% } %>
 	<!-- footer -->
 	<footer class="main-footer">
 		<%- include('./partials/footer.ejs') %>
