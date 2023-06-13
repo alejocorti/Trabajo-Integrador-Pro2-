@@ -10,6 +10,9 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
             notNull: true,
             type: DataTypes.INTEGER(10).UNSIGNED,
         },
+        imgProd:{
+            type: DataTypes.TEXT
+        },
         usuarioId:{
             notNull:true,
             type: DataTypes.INTEGER(10).UNSIGNED,

@@ -7,12 +7,9 @@
 <body>
 	<!-- Header -->
 	<header class="main-header">
-		<% if (logueado == "si") {%>
-			<%- include('./partials/header-logueado.ejs', {user: usuario})%>
-		<%} 
-		else{%>
+		
 			<%- include('./partials/header.ejs')%>
-		<%}%> 
+		
 
 	</header>
 	<!-- /Header -->
@@ -30,16 +27,16 @@
 				<h2 class="products-title">Novedades</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for (let index = 0; index < 4; index++) {%>
+			<% for (let index = 0; index < productos.length; index++) {%>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						<a href="/product/product">
 							<figure class="product-box_image">
-								<img src='<%=lsProd[index].foto%>' alt='' height="250px" width="330px">
+								<img src='<%= productos[index].imgProd %>' alt='' height="250px" width="330px">
 							</figure>
 							<article class="product-box_data">
-								<h2><%- lsProd[index].nombre %></h2>
-								<p><%- lsProd[index].descripcion%></p>
+								<h2><%- productos[index].producto %></h2>
+								<p><%- productos[index].descripcionProd%></p>
 								<p>Comentarios: 9</p>
 							</article>
 						</a>
@@ -48,29 +45,7 @@
 			<% }%>
 			
 	<!-- /Novedades -->
-	<!-- Más comentados -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Más comentados</h2>
-			</div>
-			<!-- Show the "ultimos" products -->
-			<% for (let index = 4; index < 8; index++) {%>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/product/product">
-							<figure class="product-box_image">
-								<img src='<%=lsProd[index].foto%>' alt='' height="250px" width="330px">
-							</figure>
-							<article class="product-box_data">
-								<h2><%- lsProd[index].nombre %></h2>
-								<p><%- lsProd[index].descripcion%></p>
-								<p>Comentarios: 12</p>
-							</article>
-						</a>
-					</section>
-				</div>
-			<% }%>
+			
 	<!-- /Más comentados -->
 
 

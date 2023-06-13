@@ -8,18 +8,6 @@ email varchar(255) unique not null,
 contrasenia varchar(255) not null,
 fechaDeNacimiento date,
 dni int unsigned not null,
-<<<<<<< HEAD
-foto_de_perfil varchar(255),
-
-createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-deletedAt timestamp null); 
-insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"alecorti@gmail.com","33838383",'2003-09-02',44842994,"fotoperfil.png");
-insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"elfedevitale@gmail.com","869997",'2009-02-13',44842997,"fotoperfil2.png");
-insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"mauriciomacri@gmail.com","585689759",'2004-11-01',44842992,"fotoperfil3.png");
-insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"elpitymartinez@gmail.com","32632646",'2002-12-23',44842996,"fotoperfil4.png");
-insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"ignacioaracena@gmail.com","868797",'2000-08-20',44842993,"fotoperfil5.png");
-=======
 fotoDePerfil varchar(255),
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -29,32 +17,28 @@ insert into usuarios (id,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)va
 insert into usuarios (id,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"mauriciomacri@gmail.com","585689759",'2004-11-01',44842992,"fotoperfil3.png");
 insert into usuarios (id,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"elpitymartinez@gmail.com","32632646",'2002-12-23',44842996,"fotoperfil4.png");
 insert into usuarios (id,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"ignacioaracena@gmail.com","868797",'2000-08-20',44842993,"fotoperfil5.png");
->>>>>>> 2a0a0e8c8c6175ec6220e6a03c7517ea669c5e1c
 
-delete from usuarios where id = 3 
-update usuarios
-set email = "pepe@gmail.com"
-where id = 5
 
 create table productos(
 id int unsigned primary key auto_increment,
 usuarioId INT UNSIGNED NOT NULL,
+imgProd varchar(255) not null,
 producto varchar(255) not null,
 descripcionProd varchar(255) not null,
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 deletedAt timestamp null,
 FOREIGN KEY(usuarioId) references usuarios(id));
-insert into productos (usuarioId,producto,descripcionProd)values(1,"Mate camionero acero","Mate camionero acero");
-insert into productos (usuarioId,producto,descripcionProd)values(2,"Mate imperial liso","Mate imperial liso");
-insert into productos (usuarioId,producto,descripcionProd)values(5,"Mate torpedo cincelado","Mate torpedo cincelado");
-insert into productos (usuarioId,producto,descripcionProd)values(3,"Mate calabaza cruda","Mate calabaza cruda");
-insert into productos (usuarioId,producto,descripcionProd)values(5,"Bombilla de oro","Bombilla de oro");
-insert into productos (usuarioId,producto,descripcionProd)values(2,"Bombillon premium","Bombillon premium");
-insert into productos (usuarioId,producto,descripcionProd)values(5,"Mate vaqueta","Mate vaqueta");
-insert into productos (usuarioId,producto,descripcionProd)values(4,"Stickers","Stickers");
-insert into productos (usuarioId,producto,descripcionProd)values(1,"Termo stanley","Termo stanley 1l");
-insert into productos (usuarioId,producto,descripcionProd)values(2,"Termo termolar","Termo termolar 1l");
+insert into productos (usuarioId,imgProd,producto,descripcionProd)values(1,'/images/products/torpedo_alpaca_2.png',"Mate camionero acero","Mate camionero acero");
+insert into productos (usuarioId,imgProd,producto,descripcionProd)values(2,'/images/products/torpedo_alpaca_2.png',"Mate imperial liso","Mate imperial liso");
+insert into productos (usuarioId,imgProd,producto,descripcionProd)values(5,'/images/products/torpedo_alpaca_2.png',"Mate torpedo cincelado","Mate torpedo cincelado");
+insert into productos (usuarioId,imgProd,producto,descripcionProd)values(3,'/images/products/torpedo_alpaca_2.png',"Mate calabaza cruda","Mate calabaza cruda");
+insert into productos (usuarioId,imgProd,producto,descripcionProd)values(5,'/images/products/torpedo_alpaca_2.png',"Bombilla de oro","Bombilla de oro");
+insert into productos (usuarioId,imgProd,producto,descripcionProd)values(2,'/images/products/torpedo_alpaca_2.png',"Bombillon premium","Bombillon premium");
+insert into productos (usuarioId,imgProd,producto,descripcionProd)values(5,'/images/products/torpedo_alpaca_2.png',"Mate vaqueta","Mate vaqueta");
+insert into productos (usuarioId,imgProd,producto,descripcionProd)values(4,'/images/products/torpedo_alpaca_2.png',"Stickers","Stickers");
+insert into productos (usuarioId,imgProd,producto,descripcionProd)values(1,'/images/products/torpedo_alpaca_2.png',"Termo stanley","Termo stanley 1l");
+insert into productos (usuarioId,imgProd,producto,descripcionProd)values(2,'/images/products/torpedo_alpaca_2.png',"Termo termolar","Termo termolar 1l");
 
 create table comentarios(
 id int unsigned primary key auto_increment,

@@ -7,9 +7,8 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
     let cols = {
         id:{
             primaryKey: true,
-            notNull: true,
             autoIncrement: true,
-            type: DataTypes.INTEGER(10).UNSIGNED,
+            type: DataTypes.INTEGER,
         },
         postId:{
             notNull: true,
@@ -35,9 +34,9 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
     }
     //CONFIGURACIONES ADICIONALES
     let config = { 
-        tableName: 'comentario',//puede no estar, cuando el nombre de la tabla es el nombre del modelo en plural
+        tableName: 'comentarios',//puede no estar, cuando el nombre de la tabla es el nombre del modelo en plural
         timestamps: true, //le dice al modelo si la tabla estan las columnas updatedAt y createdAt
-        underscored: false, //si la tabla tiene columnas con nombres usando _.
+        
     }
     const Comentario = Sequelize.define(alias, cols, config);
 

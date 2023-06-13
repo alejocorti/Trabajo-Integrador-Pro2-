@@ -10,18 +10,24 @@ const data = require('../data/data')
 
 const controller = {
     index: function (req, res) {
-        products.findAll ({
-            include:[{association: 'owner'}, {association: 'comentarios'}],
-            order : [['createdAt', 'DESC']],
-            limit: 5
+        products.findAll({
+            limit: 8,
+            order: [['createdAt', 'DESC']],
+            include: [{association: 'owner'}, {association: 'comentarios'}],
         })
+        .then(function (data) {
+            console.log(data);
+            return res.render('index', {productos: data});
+        })
+        .catch(function(err){console.log(err);})
              //console.log('RESULTADOS DEL FINDALL: ' + );
                     //return res.send (productos)
-            return res.render('index', {info: productoos});      
+              
+             
     },
     search: function (req,res){
         //var usuarios = [];
-        products.findAll ({
+        /* products.findAll ({
             include:[{association: 'owner'}, {association: 'comentarios'}],
             where: [{producto: {[op.like]: '%' + req.query.search + '%'}}] //  asi deberia funcionar 
         })
@@ -41,7 +47,7 @@ const controller = {
                     return res.render('search-results', {info: productoos, query: req.query.search});
                 })
             })
-            .catch(error => console.log("EL ERROR ES: " + error))
+            .catch(error => console.log("EL ERROR ES: " + error)) */
     }
 }
 //exportamos
