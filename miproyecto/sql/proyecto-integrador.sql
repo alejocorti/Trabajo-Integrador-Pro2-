@@ -1,6 +1,6 @@
 create schema datos_pagina;
 
-use datos_pagina;
+use datos_pagina; 
 
 create table usuarios (
 id int unsigned primary key auto_increment,
@@ -9,14 +9,20 @@ contrasenia varchar(255) not null,
 fecha_de_nacimiento date,
 dni int unsigned not null,
 foto_de_perfil varchar(255),
+
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-deletedAt timestamp null);
+deletedAt timestamp null); 
 insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"alecorti@gmail.com","33838383",'2003-09-02',44842994,"fotoperfil.png");
 insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"elfedevitale@gmail.com","869997",'2009-02-13',44842997,"fotoperfil2.png");
 insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"mauriciomacri@gmail.com","585689759",'2004-11-01',44842992,"fotoperfil3.png");
 insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"elpitymartinez@gmail.com","32632646",'2002-12-23',44842996,"fotoperfil4.png");
 insert into usuarios (id,email,contrasenia,fecha_de_nacimiento,dni,foto_de_perfil)values(default,"ignacioaracena@gmail.com","868797",'2000-08-20',44842993,"fotoperfil5.png");
+
+delete from usuarios where id = 3 
+update usuarios
+set email = "pepe@gmail.com"
+where id = 5
 
 create table productos(
 id int unsigned primary key auto_increment,

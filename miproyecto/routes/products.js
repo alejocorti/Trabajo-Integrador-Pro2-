@@ -5,10 +5,11 @@ const controller = require('../controllers/pControler')
 
 /* GET home page. */ 
 
+
 router.get('/search-results', controller.searchResults);
 router.get('/product-add', controller.productAdd);
-router.get('/product', controller.product);
+router.get('/product/:id', controller.product);
 
 
 
-module.exports = router;
+module.exports = router; 

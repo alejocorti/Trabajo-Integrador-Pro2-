@@ -2,6 +2,7 @@ const data = require('../data/data')
 
 const controller = {
     product: function (req, res) {
+        req.params.id 
         return res.render('product', {producto: data.productos[0], comentarios: data.comentarios})
     },
     searchResults: function (req, res) {
@@ -10,7 +11,7 @@ const controller = {
     productAdd: function (req, res) {
         return res.render('product-add', {usuario: data.usuarios.usuario})
     },
-}
+} 
 
 
 module.exports = controller;
