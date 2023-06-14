@@ -16,16 +16,18 @@
 	<!-- Novedades -->
 	
 	<section class="form-login">
-		<form action="/logueado">
+		<form action="/users/login" method="post">
 			<h4>Ingresar <i class="fa-solid fa-right-to-bracket"></i></h4> 
-			<input class="casilla-login" type="text" name="nombres" id="nombres" placeholder="Nombre">
-			<input class="casilla-login" type="password" name="contraseña" id="contraseña" placeholder="contraseña">
-			<input class="check-log" type="checkbox" value="" id="form2Example31" checked />
+			<input class="casilla-login" type="text" name="nombres" id="nombres" placeholder="Email">
+			<input class="casilla-login" type="password" name="contrasena" id="contrasena" placeholder="contraseña">
+			<input class="check-log" type="checkbox" value="" name="checkbox" id="form2Example31" checked />
 			<label class="check-log"> Recordarme</label>
 			<input class="botons" type="submit" name="submit" id="login" placeholder="login">
 		</form>
 	</section>
-
+	<% if (locals.errors) { %>
+		<p><%= errors.message %></p>
+	<% } %>
 
 	<!-- footer -->
 	<footer class="main-footer">

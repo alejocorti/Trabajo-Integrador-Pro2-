@@ -11,7 +11,51 @@ const controller = {
         return res.render('profile-edit', {usuario: data.usuarios.usuario})
     },
     login: function (req, res) {
-        res.render('login')
+        if (req.cookies.DatosUsuario != null) {
+            return res.redirect('/')
+        }
+        else{
+            res.render('login')
+        }
+    },
+    login_usuario: function (req, res) {
+        let errors = {}
+        let email = req.body.nombres
+        let contrasena = req.body.contrasena
+        usuarios.findOne({
+            where: [{email: email}]
+        })
+        .then(function(data){
+
+            //Verificamos que exista el mail
+            if (data != null) {
+                //Verificamos contrasena
+                if (bcrypt.compareSync(contrasena, data.contrasenia)) {
+                    
+                    if (req.body.checkbox != undefined) {
+                        req.session.DatosUsuario = data
+                        res.cookie('DatosUsuario', data, {maxAge: 1000*60*5})
+                        return res.redirect('/')
+                    }
+                    else{
+                        req.session.DatosUsuario = data
+                        console.log('funciona');
+                        return res.redirect('/')
+                    }
+                    
+                }
+                else{
+                    errors.message = 'La contrasena para este mail es incorrecta';
+                    res.locals.errors = errors
+                    return res.render('login')
+                }
+            }
+            else{
+                errors.message = 'El mail ingresado no existe';
+                res.locals.errors = errors
+                return res.render('login')
+            }
+        })
     },
     register: function (req, res) {
         res.render('register')

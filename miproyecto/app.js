@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var session = require('express-session')
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
@@ -20,6 +21,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//ejecutamos session
+app.use(session({
+  secret: 'Proyecto programacion',
+  resave: false,
+  saveUninitialized: true,
+}))
+app.use(function (req, res, next) {
+  res.locals.DatosUsuario = req.session.DatosUsuario
+  return next()
+})
+
+//ejecutamos cookieParser
+app.use(cookieParser())
+
+app.use(function(req, res, next){
+  if(req.cookies.DatosUsuario != null){
+    res.locals.DatosUsuario, req.session.DatosUsuario = req.cookies.DatosUsuario
+  }
+  return next()
+})
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

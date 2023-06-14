@@ -9,7 +9,11 @@
 <body>
 	<!-- Header -->
 	<header class="main-header">
-		<%- include('./partials/header.ejs') %>
+		<% if (DatosUsuario != null) { %> 
+			<%- include('./partials/header-Logueado.ejs')%>
+		<% } else { %>
+			<%- include('./partials/header.ejs')%>
+		<% } %>
 	</header>
 	<!-- /Header -->
 
