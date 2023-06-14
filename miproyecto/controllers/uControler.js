@@ -96,7 +96,11 @@ const controller = {
         })
     }
     },
-
+    cerrar_sesion: function (req, res){
+        req.session.destroy()
+        res.clearCookie('DatosUsuario')
+        return res.redirect('/')
+    }
 }
 
 
