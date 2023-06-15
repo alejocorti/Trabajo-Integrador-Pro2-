@@ -19,11 +19,11 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="<%= foto %>" alt="foto de perfil" class="foto-perfil">
+				<img src="<%= usuario.fotoDePerfil %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%= usuario %>
+					<h1 class="main-title"><%= usuario.usuario %>
 						<a href="/users/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -32,10 +32,10 @@
 				</div>
 				<div>
 					<ul class="">
-						<li><%= mail %></li>
-						<li>12 productos</li>
+						<li><%= usuario.email %></li>
+						<li><%= lsProd.length %> productos</li>
 						<li>2000 seguidores</li>
-						<li>300 comentarios</li>
+						<li><%= comentarios.length %> comentarios</li>
 					</ul>
 				</div>
 			</div>
@@ -53,13 +53,13 @@
 			<% for (let index = 0; index < lsProd.length; index++) {%>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/product/product">
+						<a href="/product/product/<%= lsProd[index].id %>">
 							<figure class="product-box_image">
-								<img src='<%=lsProd[index].foto%>' alt='' height="250px" width="330px">
+								<img src='<%=lsProd[index].imgProd%>' alt='' height="250px" width="330px">
 							</figure>
 							<article class="product-box_data">
-								<h2><%- lsProd[index].nombre %></h2>
-								<p><%- lsProd[index].descripcion%></p>
+								<h2><%- lsProd[index].producto %></h2>
+								<p><%- lsProd[index].descripcionProd%></p>
 								<p>Comentarios: 12</p>
 							</article>
 						</a>

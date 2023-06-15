@@ -5,7 +5,14 @@ const usuarios = db.Usuario
 
 const controller = {
     perfil: function (req, res) {
-        return res.render('profile', {usuario: data.usuarios.usuario, foto: data.usuarios.fto, mail: data.usuarios.mail, lsProd: data.productos})
+        let id = req.params.id
+        usuarios.findByPk(id, {
+            include: [{association: 'productos'}, {association: 'comentarios'}]
+        })
+        .then(function(data) {
+            return res.render('profile', {usuario: data, lsProd: data.productos, comentarios: data.comentarios})
+        })
+        .catch(function(err){console.log(err);})
     },
     editar_perfil: function (req, res) {
         return res.render('profile-edit', {usuario: data.usuarios.usuario})
