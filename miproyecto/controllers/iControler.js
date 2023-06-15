@@ -41,7 +41,24 @@ const controller = {
             return res.render("search-results", {productos: data})
         })
         .catch((err)=>{console.log(err);})
-    }
+    },
+    searchUsuarios: function (req,res){
+        let qString = req.query.search
+        
+        users.findAll({
+            where: [{
+                [op.or]: 
+                    [{usuario: {[op.like]:"%"+ qString + "%"}}, {email: {[op.like]:"%"+ qString + "%"}}]
+            }],
+            order: [['createdAt', 'DESC']],
+            include: [{association: 'productos'}, {association: 'comentarios'}],
+        })
+        .then((data)=>{
+            console.log(data);
+            return res.render("search-users", {usuarios: data})
+        })
+        .catch((err)=>{console.log(err);})
+    },
 }
 //exportamos
 module.exports = controller;

@@ -16,8 +16,129 @@ const controller = {
         })
         .catch(function(err){console.log(err);})
     },
+    editar: function (req, res) {
+        let id = req.params.id
+        usuarios.findByPk(id)
+        .then((data)=>{
+            return res.render('profile-edit', {usuario: data})
+        })
+        .catch((err)=>{console.log(err);})
+    },
     editar_perfil: function (req, res) {
-        return res.render('profile-edit', {usuario: data.usuarios.usuario})
+        let id = req.params.id
+        let contraActual
+        let emailActual
+        let errors = {}
+        usuarios.findByPk(id)
+        .then((data)=>{
+            contraActual = data.contrasenia
+            emailActual = data.email
+            if(emailActual != req.body.email){
+                usuarios.findOne({
+                    where: [{email: req.body.email}]
+                })
+                .then(function(data) {
+                    // Chequeamos que el mail no exista
+                    if(data){
+                        errors.message = 'El mail ingresado ya existe';
+                        res.locals.errors = errors
+                        return res.render('profile-edit')
+                    }
+                    else{
+                        //chequeamos si el usuario quiere cambiar la contraseña
+                        if (req.body.contrasena != "") {
+                            //para cambiar los datos debe ingresar su contraseña
+                            if(bcrypt.compareSync(req.body.contrasenaVieja, contraActual)){
+                                usuarios.update({
+                                    email: req.body.email,
+                                    usuario: req.body.usuario,
+                                    contrasenia: bcrypt.hashSync(req.body.contrasena, req.body.contrasena.length),
+                                    fechaDeNacimiento: req.body.nacimiento,
+                                    dni: req.body.documento,
+                                    fotoDePerfil: req.body.fotoPerfil,
+                                },{
+                                    where: {id: id}
+                                })
+                                return res.redirect("/")
+                            } else{
+                            errors.message = 'La contrasena ingresada es incorrecta';
+                            res.locals.errors = errors
+                            return res.render("profile-edit")
+                            }
+                            
+                        } else{
+                            //Si no quiere cambiar la contraseña
+                            if(bcrypt.compareSync(req.body.contrasenaVieja, contraActual)){
+                            usuarios.update({
+                                email: req.body.email,
+                                usuario: req.body.usuario,
+                                fechaDeNacimiento: req.body.nacimiento,
+                                dni: req.body.documento,
+                                fotoDePerfil: req.body.fotoPerfil,
+                            },{
+                                where: {id: id}
+                            })
+                            return res.redirect("/")
+                        } else{
+                            errors.message = 'La contrasena ingresada es incorrecta';
+                            res.locals.errors = errors
+                            return res.render("profile-edit")
+                        }
+                        }
+                        return res.redirect("/users/profile/" + id)
+                    }
+                })
+                .catch(function(err){
+                    console.log(err)
+                })
+            } else{
+                if (req.body.contrasena ) {
+                    //para cambiar los datos debe ingresar su contraseña
+                    if(bcrypt.compareSync(req.body.contrasenaVieja, contraActual)){
+                        usuarios.update({
+                            email: req.body.email,
+                            usuario: req.body.usuario,
+                            contrasenia: bcrypt.hashSync(req.body.contrasena, req.body.contrasena.length),
+                            fechaDeNacimiento: req.body.nacimiento,
+                            dni: req.body.documento,
+                            fotoDePerfil: req.body.fotoPerfil,
+                        },{
+                            where: {id: id}
+                        })
+                        return res.redirect("/")
+                    } else{
+                    errors.message = 'La contrasena ingresada es incorrecta';
+                    res.locals.errors = errors
+                    return res.render("profile-edit")
+                    }
+                    
+                } else{
+                    //Si no quiere cambiar la contraseña
+                    if(bcrypt.compareSync(req.body.contrasenaVieja, contraActual)){
+                    usuarios.update({
+                        email: req.body.email,
+                        usuario: req.body.usuario,
+                        fechaDeNacimiento: req.body.nacimiento,
+                        dni: req.body.documento,
+                        fotoDePerfil: req.body.fotoPerfil,
+                    },{
+                        where: {id: id}
+                    })
+                    return res.redirect("/")
+                } else{
+                    errors.message = 'La contrasena ingresada es incorrecta';
+                    res.locals.errors = errors
+                    return res.render("profile-edit")
+                }
+            }
+        }
+        })
+        .catch((err)=>{console.log(err);})
+        
+        
+        
+
+        
     },
     login: function (req, res) {
         if (req.cookies.DatosUsuario != null) {

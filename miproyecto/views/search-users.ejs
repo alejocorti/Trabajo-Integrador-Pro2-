@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<head>
+	<%- include('./partials/head.ejs')%>
+</head>
+
+<body>
+	<!-- Header -->
+	<header class="main-header">
+		<% if (DatosUsuario != null) { %> 
+			<%- include('./partials/header-Logueado.ejs')%>
+		<% } else { %>
+			<%- include('./partials/header.ejs')%>
+		<% } %>
+	</header>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Resultados de búsqueda</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<% for (let index = 0; index < usuarios.length; index++) {%>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/users/profile/<%= usuarios[index].id %>">
+							<figure class="product-box_image">
+								<img src='<%= usuarios[index].fotoDePerfil %>' alt='' height="250px" width="330px">
+							</figure>
+							<article class="product-box_data">
+								<h2><%- usuarios[index].usuario %></h2>
+								<p><%- usuarios[index].email %></p>
+								
+							</article>
+						</a>
+					</section>
+				</div>
+			<% }%>
+			<h2 class="col-12"> <i> <br> <br>
+				Nos quedamos sin stock del producto que estabas buscando. Te invitamos a ver nuestro catalógo con los productos disponibles. Disculpa las molestias :) <br>
+			</h2>
+
+			
+
+	<!-- footer -->
+	<footer class="main-footer">
+		<%- include('./partials/footer.ejs') %>
+	</footer>
+	<!-- /footer -->
+</body>
+
+</html>
