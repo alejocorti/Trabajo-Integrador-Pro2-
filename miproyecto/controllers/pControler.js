@@ -6,7 +6,7 @@ const controller = {
     product: function (req, res) {
         let id = req.params.id 
         productos.findByPk(id, {
-            include: [{association: 'owner'}, {association: 'comentarios'}]
+            include: [{association: 'owner'}, {association: 'comentarios', include:[{association: "comentador"}]}]
         })
         .then(function(data){
             return res.render('product', {producto: data, comentarios: data.comentarios, usuario: data.owner})
@@ -57,8 +57,15 @@ const controller = {
     },
     anadirCometario: function (req, res) {
         let comentario = req.body.comentario
-        console.log(comentario);
-        return res.redirect("/")
+        let id = req.params.id
+
+        console.log(comentario, id);
+        comentarios.create({
+            postId: id,
+            usuarioId: req.session.DatosUsuario.id,
+            comentario: comentario
+        })
+        return res.redirect("/product/product/" + id)
     }
 } 
 

@@ -12,7 +12,7 @@ router.get('/product/:id', controller.product);
 router.get('/productUpdate/:id', controller.productUpdate_vista)
 router.post('/productUpdate/:id', controller.productUpdate)
 router.post('/productDelete/:id', controller.productDelete)
-router.post("/comentario", controller.anadirCometario)
+router.post("/comentario/:id", controller.anadirCometario)
 
 
 module.exports = router; 

@@ -43,10 +43,10 @@
 					<section class="comments">
 						<% for( let index = 0; index < comentarios.length; index++ ) { %>
 							<article>
-								<img src= "<%= comentarios[index].imagen %>" alt="">
+								<img src= "<%= comentarios[index].comentador.fotoDePerfil %>" alt="">
 								<div class="data">
 									<p class="user">
-									<strong> <a href="/users/profile"><%= comentarios[index].nombre_de_usuario %> </a> </strong>
+									<strong> <a href="/users/profile/<%= comentarios[index].comentador.id %>"><%= comentarios[index].comentador.usuario %> </a> </strong>
 										<%= comentarios[index].comentario %>
 									</p>
 								</div>
@@ -56,10 +56,16 @@
 					
 
 					</section>
-					<form class="form" action="/product/comentario" method="post">
-						<input class="form-input" type="text" value="" name="comentario" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-					</form>
+
+					<% if (DatosUsuario != null) { %> 
+						<form class="form" action="/product/comentario/<%= producto.id %>" method="post">
+							<input class="form-input" type="text" value="" name="comentario" placeholder="Agregar comentario">
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+					<% } else { %>
+						<a href="/users/login">Para comentar primero debes iniciar session, clickea aca para hacerlo</a>
+					<% } %>
+					
 					<hr>
 				</div>
 			</div>

@@ -13,11 +13,11 @@ fotoDePerfil varchar(255),
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 deletedAt timestamp null);
-insert into usuarios (id,usuario,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"cortipopo08","alecorti@gmail.com","33838383",'2003-09-02',44842994,"fotoperfil.png");
-insert into usuarios (id,usuario,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"kakito","elfedevitale@gmail.com","869997",'2009-02-13',44842997,"fotoperfil2.png");
-insert into usuarios (id,usuario,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"gustavito12","mauriciomacri@gmail.com","585689759",'2004-11-01',44842992,"fotoperfil3.png");
-insert into usuarios (id,usuario,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"nachoton","elpitymartinez@gmail.com","32632646",'2002-12-23',44842996,"fotoperfil4.png");
-insert into usuarios (id,usuario,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"eligna45","ignacioaracena@gmail.com","868797",'2000-08-20',44842993,"fotoperfil5.png");
+insert into usuarios (id,usuario,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"cortipopo08","alecorti@gmail.com","33838383",'2003-09-02',44842994,"/images/users/messi.jpg");
+insert into usuarios (id,usuario,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"kakito","elfedevitale@gmail.com","869997",'2009-02-13',44842997,"/images/users/fotoperfil.png");
+insert into usuarios (id,usuario,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"gustavito12","mauriciomacri@gmail.com","585689759",'2004-11-01',44842992,"/images/users/buli.jpg");
+insert into usuarios (id,usuario,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"nachoton","elpitymartinez@gmail.com","32632646",'2002-12-23',44842996,"/images/users/messi.jpg");
+insert into usuarios (id,usuario,email,contrasenia,fechaDeNacimiento,dni,fotoDePerfil)values(default,"eligna45","ignacioaracena@gmail.com","868797",'2000-08-20',44842993,"/images/users/messi.jpg");
 
 
 create table productos(
