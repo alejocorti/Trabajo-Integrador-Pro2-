@@ -5,6 +5,8 @@ const controller = require('../controllers/iControler')
 
 
 /* GET home page. */ 
-router.get('/:si?', controller.index);
+router.get("/search-results", controller.search)
+router.get('/', controller.index);
+
 
 module.exports = router;

@@ -41,9 +41,6 @@ const controller = {
         })
         return res.redirect('/')
     },
-    searchResults: function (req, res) {
-        return res.render('search-results', {lsProd: data.productos})
-    },
     productAdd: function (req, res) {
         return res.render('product-add')
     },
@@ -57,6 +54,11 @@ const controller = {
             descripcionProd: req.body.descripcion,
         })
         return res.redirect('/')
+    },
+    anadirCometario: function (req, res) {
+        let comentario = req.body.comentario
+        console.log(comentario);
+        return res.redirect("/")
     }
 } 
 

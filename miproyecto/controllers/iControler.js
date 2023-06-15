@@ -26,28 +26,21 @@ const controller = {
              
     },
     search: function (req,res){
-        //var usuarios = [];
-        /* products.findAll ({
-            include:[{association: 'owner'}, {association: 'comentarios'}],
-            where: [{producto: {[op.like]: '%' + req.query.search + '%'}}] //  asi deberia funcionar 
+        let qString = req.query.search
+        
+        products.findAll({
+            where: [{
+                [op.or]: 
+                    [{producto: {[op.like]:"%"+ qString + "%"}}, {descripcionProd: {[op.like]:"%"+ qString + "%"}}]
+            }],
+            order: [['createdAt', 'DESC']],
+            include: [{association: 'owner'}, {association: 'comentarios'}],
         })
-            .then(function (productoos){
-                //return res.send(productoos);
-                console.log('el primer findAll nos trae: ' + productoos)
-                products.findAll ({
-                    include:[{association: 'owner'}, {association: 'comentarios'}],
-                    where: [{descripcionProd: {[op.like]: '%' + req.query.search + '%'}}] //  asi deberia funcionar 
-                })
-                .then(function(productoos2){
-                    
-                    for(let i = 0; i < productoos.length; i++){
-                        productoos.push(productoos2[i])
-                    }
-                    
-                    return res.render('search-results', {info: productoos, query: req.query.search});
-                })
-            })
-            .catch(error => console.log("EL ERROR ES: " + error)) */
+        .then((data)=>{
+            console.log(data);
+            return res.render("search-results", {productos: data})
+        })
+        .catch((err)=>{console.log(err);})
     }
 }
 //exportamos
