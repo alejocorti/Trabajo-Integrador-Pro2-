@@ -17,11 +17,11 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
+				<h2 class="products-title">Editar producto</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<section class="form-login">
-				<form action="/product/product-Add" method="post">
+				<form action="/product/productUpdate/<%= id %>" method="post">
 				<h4>Agregar producto <i class="fa-solid fa-cart-shopping"></i></h4>
 				<input class="casilla-login" type="text" name="imagen" id="imagen" placeholder="Imagen">
 				<input class="casilla-login" type="text" name="nombreProducto" id="nombreProducto" placeholder="Nombre del producto">

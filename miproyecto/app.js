@@ -19,8 +19,8 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser())
 //ejecutamos session
 app.use(session({
   secret: 'Proyecto programacion',
@@ -33,11 +33,12 @@ app.use(function (req, res, next) {
 })
 
 //ejecutamos cookieParser
-app.use(cookieParser())
+
 
 app.use(function(req, res, next){
   if(req.cookies.DatosUsuario != null){
-    res.locals.DatosUsuario, req.session.DatosUsuario = req.cookies.DatosUsuario
+    req.session.DatosUsuario = req.cookies.DatosUsuario
+    res.locals.DatosUsuario = req.cookies.DatosUsuario
   }
   return next()
 })

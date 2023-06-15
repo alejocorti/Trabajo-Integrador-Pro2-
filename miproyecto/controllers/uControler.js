@@ -6,10 +6,12 @@ const usuarios = db.Usuario
 const controller = {
     perfil: function (req, res) {
         let id = req.params.id
+        console.log(id);
         usuarios.findByPk(id, {
             include: [{association: 'productos'}, {association: 'comentarios'}]
         })
         .then(function(data) {
+            console.log(data.productos);
             return res.render('profile', {usuario: data, lsProd: data.productos, comentarios: data.comentarios})
         })
         .catch(function(err){console.log(err);})

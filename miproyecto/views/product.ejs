@@ -18,15 +18,25 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"> <%= producto.nombre %></h2> 
-			<p class="product-detail-description">
-				<a href="/product/product">Editar</a>
-			</p>
+			<h2 class="products-title"> <%= producto.producto %></h2> 
+			<% if (DatosUsuario) { %>
+				<% if (DatosUsuario.id == usuario.id) { %>
+					<p class="product-detail-description">
+						<a href="/product/productUpdate/<%= producto.id %>">Editar</a>
+					</p>
+					<form action="/product/productDelete/<%= producto.id %>" method="post">
+						<button type="submit">Borrar</button>
+					</form>
+					
+				<% } %>
+			<% } %>
+			
+			<a href="/users/profile/<%= usuario.id %>"><h3>Creado por: <%= usuario.usuario %></h3></a>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%= producto.foto %>" alt="" class="product-detail-img">
+					<img src="<%= producto.imgProd %>" alt="" class="product-detail-img">
 					<p class="product-detail-description"><%= producto.descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
