@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs')
 const usuarios = db.Usuario
 
 const controller = {
-    perfil: function (req, res) {
+    perfil: function (req, res) {   
         let id = req.params.id
         console.log(id);
         usuarios.findByPk(id, {
@@ -26,119 +26,75 @@ const controller = {
     },
     editar_perfil: function (req, res) {
         let id = req.params.id
-        let contraActual
-        let emailActual
         let errors = {}
-        usuarios.findByPk(id)
-        .then((data)=>{
-            contraActual = data.contrasenia
-            emailActual = data.email
-            if(emailActual != req.body.email){
-                usuarios.findOne({
-                    where: [{email: req.body.email}]
+        let contra = req.body.contrasena
+        console.log(req.body.contrasena);
+        // si completa la contrasena pasa esto
+        if (contra) {
+            if (req.body.contrasena.length<3) {
+                errors.message = 'La contrasena debe tener al menos tres caracteres';
+                res.locals.errors = errors
+                return res.render('profile-edit', {usuario: req.body})
+            }
+            else{
+                usuarios.update({
+                    email: req.body.email,
+                    usuario: req.body.usuario,
+                    contrasenia: bcrypt.hashSync(req.body.contrasena, req.body.contrasena.length),
+                    fechaDeNacimiento: req.body.nacimiento,
+                    dni: req.body.documento,
+                    fotoDePerfil: req.body.fotoPerfil,
+                },{
+                    where:{id:id}
                 })
-                .then(function(data) {
-                    // Chequeamos que el mail no exista
-                    if(data){
-                        errors.message = 'El mail ingresado ya existe';
-                        res.locals.errors = errors
-                        return res.render('profile-edit')
-                    }
-                    else{
-                        //chequeamos si el usuario quiere cambiar la contraseña
-                        if (req.body.contrasena != "") {
-                            //para cambiar los datos debe ingresar su contraseña
-                            if(bcrypt.compareSync(req.body.contrasenaVieja, contraActual)){
-                                usuarios.update({
-                                    email: req.body.email,
-                                    usuario: req.body.usuario,
-                                    contrasenia: bcrypt.hashSync(req.body.contrasena, req.body.contrasena.length),
-                                    fechaDeNacimiento: req.body.nacimiento,
-                                    dni: req.body.documento,
-                                    fotoDePerfil: req.body.fotoPerfil,
-                                },{
-                                    where: {id: id}
-                                })
-                                return res.redirect("/")
-                            } else{
-                            errors.message = 'La contrasena ingresada es incorrecta';
-                            res.locals.errors = errors
-                            return res.render("profile-edit")
-                            }
-                            
-                        } else{
-                            //Si no quiere cambiar la contraseña
-                            if(bcrypt.compareSync(req.body.contrasenaVieja, contraActual)){
-                            usuarios.update({
-                                email: req.body.email,
-                                usuario: req.body.usuario,
-                                fechaDeNacimiento: req.body.nacimiento,
-                                dni: req.body.documento,
-                                fotoDePerfil: req.body.fotoPerfil,
-                            },{
-                                where: {id: id}
-                            })
-                            return res.redirect("/")
-                        } else{
-                            errors.message = 'La contrasena ingresada es incorrecta';
-                            res.locals.errors = errors
-                            return res.render("profile-edit")
-                        }
-                        }
-                        return res.redirect("/users/profile/" + id)
-                    }
-                })
-                .catch(function(err){
-                    console.log(err)
-                })
-            } else{
-                if (req.body.contrasena ) {
-                    //para cambiar los datos debe ingresar su contraseña
-                    if(bcrypt.compareSync(req.body.contrasenaVieja, contraActual)){
-                        usuarios.update({
-                            email: req.body.email,
-                            usuario: req.body.usuario,
-                            contrasenia: bcrypt.hashSync(req.body.contrasena, req.body.contrasena.length),
-                            fechaDeNacimiento: req.body.nacimiento,
-                            dni: req.body.documento,
-                            fotoDePerfil: req.body.fotoPerfil,
-                        },{
-                            where: {id: id}
-                        })
-                        return res.redirect("/")
-                    } else{
-                    errors.message = 'La contrasena ingresada es incorrecta';
-                    res.locals.errors = errors
-                    return res.render("profile-edit")
-                    }
-                    
-                } else{
-                    //Si no quiere cambiar la contraseña
-                    if(bcrypt.compareSync(req.body.contrasenaVieja, contraActual)){
-                    usuarios.update({
-                        email: req.body.email,
-                        usuario: req.body.usuario,
-                        fechaDeNacimiento: req.body.nacimiento,
-                        dni: req.body.documento,
-                        fotoDePerfil: req.body.fotoPerfil,
-                    },{
-                        where: {id: id}
-                    })
-                    return res.redirect("/")
-                } else{
-                    errors.message = 'La contrasena ingresada es incorrecta';
-                    res.locals.errors = errors
-                    return res.render("profile-edit")
-                }
+
             }
         }
+        //Si no la completa pasa esto
+        else{
+            usuarios.update({
+                email: req.body.email,
+                usuario: req.body.usuario,
+                fechaDeNacimiento: req.body.nacimiento,
+                dni: req.body.documento,
+                fotoDePerfil: req.body.fotoPerfil,
+            },{
+                where:{id:id}
+            })
+        
+        }
+        //Que vuelva a iniciar sesion
+        req.session.destroy()
+        res.clearCookie('DatosUsuario')
+        return res.redirect('/')
+    },
+    user_check: function(req, res){
+        return res.render('user-check')
+    },
+    user_checkPost: function(req, res){
+        let id = req.params.id
+        let errors = {}
+        let email = req.body.nombres
+        let contrasena = req.body.contrasena
+        console.log(contrasena, email);
+        usuarios.findOne({
+            where: [{email: email}]
+        })
+        .then(function(data){
+            //Verificamos contrasena
+            if (bcrypt.compareSync(contrasena, data.contrasenia)) {
+                return res.redirect('/users/profile-edit/' + id)
+            } 
+            else{
+                errors.message = 'La contrasena para este mail es incorrecta';
+                res.locals.errors = errors
+                return res.render('user-check')
+            }
+            
+            
         })
         .catch((err)=>{console.log(err);})
-        
-        
-        
-
-        
+       
     },
     login: function (req, res) {
         if (req.cookies.DatosUsuario != null) {

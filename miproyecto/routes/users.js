@@ -13,6 +13,9 @@ router.post('/register', controller.usuarioAdd);
 router.get('/profile/:id', controller.perfil);
 router.get('/profile-edit/:id', controller.editar);
 router.post('/profile-edit/:id', controller.editar_perfil);
+router.get('/user-check/:id', controller.user_check);
+router.post('/user-check/:id', controller.user_checkPost);
+
 
 
 module.exports = router;

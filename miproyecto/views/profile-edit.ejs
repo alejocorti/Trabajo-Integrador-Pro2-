@@ -23,10 +23,9 @@
 			<section class="form-login">
 				<form action="/users/profile-edit/<%= usuario.id %>" method="post">
 				<h4>Edita tu perfil</h4>
-				<input class="casilla-login" type="email" name="email" id="email" placeholder="Email" value="<%= usuario.email %>" required>
+				<input class="casilla-login" type="email" name="email" id="email" placeholder="Email" value="<%= usuario.email %>" hidden>
 				<input class="casilla-login" type="text" name="usuario" id="usuario" placeholder="Usuario" value="<%= usuario.usuario %>">
-				<input class="casilla-login" type="password" name="contrasenaVieja" id="contraseña" placeholder="Contraseña vieja" required>
-				<input class="casilla-login" type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
+				<input class="casilla-login" type="password" name="contrasena" id="contrasena" placeholder="Contraseña">
 				<input class="casilla-login" type="date" name="nacimiento" id="nacimiento" value="<%= usuario.fechaDeNacimiento %>">
 				<input class="casilla-login" type="number" name="documento" id="documento" placeholder="Documento" value="<%= usuario.dni %>">
 				<input class="casilla-login" type="text" name="foto-perfil" id="foto-perfil" placeholder="Foto de Perfil" value="<%= usuario.fotoDePerfil %>">
